@@ -5,16 +5,16 @@
  *
  * Copyright (c) 2008-2012 Gekosale sp. z o.o.. Zabronione jest usuwanie informacji o licencji i autorach.
  *
- * This library is free software; you can redistribute it and/or 
+ * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version. 
- * 
- * 
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ *
  * $Revision: 438 $
  * $Author: gekosale $
  * $Date: 2011-08-27 11:29:36 +0200 (So, 27 sie 2011) $
- * $Id: files.php 438 2011-08-27 09:29:36Z gekosale $ 
+ * $Id: files.php 438 2011-08-27 09:29:36Z gekosale $
  */
 
 namespace Gekosale;
@@ -68,7 +68,7 @@ class FilesModel extends Component\Model\Datagrid
 				LEFT JOIN deliverer DEL ON DEL.photoid = F.idfile
 				LEFT JOIN producer PRO ON PRO.photoid = F.idfile
 
-				
+
 			');
 		$datagrid->setGroupBy('
 				F.idfile
@@ -87,7 +87,7 @@ class FilesModel extends Component\Model\Datagrid
 		}
 		return $image['path'];
 	}
-	
+
 	public function getOrginalPathForId ($id)
 	{
 		try{
@@ -136,20 +136,33 @@ class FilesModel extends Component\Model\Datagrid
 				$Data
 			);
 		}
-		$fileData = Array();
+
+		$filesData = Array();
 		foreach ($Data as $fileid){
 			$filesData[] = App::getModel('gallery')->getFileById($fileid);
 		}
-		
+
+		$error = FALSE;
+
 		foreach ($filesData as $file){
-			DbTracker::deleteRows('file', 'idfile', $file['idfile']);
-			App::getModel('gallery')->deleteFilesFromArray($file);
+			if ($file['idfile'] == 1) {
+				$error = TRUE;
+			}
+			else {
+				DbTracker::deleteRows('file', 'idfile', $file['idfile']);
+				App::getModel('gallery')->deleteFilesFromArray($file);
+			}
 		}
-		
+
 		$this->registry->cache->delete('files');
 		$this->registry->cache->delete('news');
 		$this->registry->cache->delete('contentcategory');
 		$this->registry->cache->delete('categories');
-	
+
+		if ($error) {
+			return array(
+				'error' => _('ERR_DELETE_FILE')
+			);
+		}
 	}
 }
