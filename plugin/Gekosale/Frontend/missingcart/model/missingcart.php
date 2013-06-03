@@ -4,7 +4,7 @@
  * Gekosale, Open Source E-Commerce Solution
  * http://www.gekosale.pl
  *
- * Copyright (c) 2008-2012 Gekosale sp. z o.o.. Zabronione jest usuwanie informacji o licencji i autorach.
+ * Copyright (c) 2008-2013 WellCommerce sp. z o.o.. Zabronione jest usuwanie informacji o licencji i autorach.
  *
  * This library is free software; you can redistribute it and/or 
  * modify it under the terms of the GNU Lesser General Public
@@ -22,14 +22,6 @@ namespace Gekosale;
 class missingcartModel extends Component\Model
 {
 	
-	// ____________________________________________________________________________________________//
-	// //
-	// FUNKCJE WSPOMAGAJĄCE GARBAGE COLLECTOR //
-	// ____________________________________________________________________________________________//
-	
-	// zapisywanie danych do tablicy missingCart.
-	// dane uzupełniane są, jeśli zadziała garbage collector
-	// na wybraną sesję, której kontent zawiera niepusty koszyk
 	public function saveMissingCartData ($cart, $sessionid)
 	{
 		try{
@@ -92,7 +84,7 @@ class missingcartModel extends Component\Model
 					}
 				}
 			}
-			// zapis produktów z atrybutami
+			// zapis produktĂłw z atrybutami
 			if (isset($product['attributes']) && $product['attributes'] != NULL){
 				foreach ($product['attributes'] as $attributesmissingcart => $attribute){
 					$sql = "SELECT * FROM product WHERE idproduct = :id";
@@ -123,9 +115,9 @@ class missingcartModel extends Component\Model
 		}
 	}
 	
-	// Stwórz tablicę z informacjami o usuwanej przez garbage collector sesji
-	// Tablica zostanie utwórzona tylko wtedy, gdy dana sesja ($sessionid)
-	// będzie ostatnią zapisaną sesją danego klienta ($rs['sessionid'])
+	// StwĂłrz tablicÄ™ z informacjami o usuwanej przez garbage collector sesji
+	// Tablica zostanie utwĂłrzona tylko wtedy, gdy dana sesja ($sessionid)
+	// bÄ™dzie ostatniÄ… zapisanÄ… sesjÄ… danego klienta ($rs['sessionid'])
 	public function checkMissingCartSessionid ($sessionid)
 	{
 		$sql = "SELECT 
@@ -157,9 +149,9 @@ class missingcartModel extends Component\Model
 		return $Data;
 	}
 	
-	// sprawdź, czy usuwana przez garbage collector sesja, zawiera dane o
+	// sprawdĹş, czy usuwana przez garbage collector sesja, zawiera dane o
 	// koszyku
-	// i koszyk należy do zalogowanego klienta- jeśli tak, to true,
+	// i koszyk naleĹĽy do zalogowanego klienta- jeĹ›li tak, to true,
 	// w przeciwnym razie false
 	public function checkSessionHandlerHasCartData ($cart)
 	{
@@ -173,7 +165,7 @@ class missingcartModel extends Component\Model
 	
 	// ____________________________________________________________________________________________//
 	// //
-	// FUNKCJE OBSŁUGUJĄCE PORZUCONE KOSZYKI //
+	// FUNKCJE OBSĹ�UGUJÄ„CE PORZUCONE KOSZYKI //
 	// ____________________________________________________________________________________________//
 	public function checkMissingCartForClient ($clientid)
 	{

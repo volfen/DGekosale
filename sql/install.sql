@@ -2469,7 +2469,7 @@ CREATE TABLE `updatehistory` (
 ) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `updatehistory` (`idupdatehistory`, `packagename`, `version`, `channel`) VALUES (1,'Gekosale','2.0.0','update.gekosale.pl');
+INSERT INTO `updatehistory` (`idupdatehistory`, `packagename`, `version`, `channel`) VALUES (1,'Gekosale','2.0.1','update.gekosale.pl');
 DROP TABLE IF EXISTS `upsell`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;

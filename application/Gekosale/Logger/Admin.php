@@ -11,7 +11,7 @@
  * version 2.1 of the License, or (at your option) any later version. 
  * 
  * 
- * $Revision: 438 $
+ * $Revision: 438 $ 
  * $Author: gekosale $
  * $Date: 2011-08-27 11:29:36 +0200 (So, 27 sie 2011) $
  * $Id: controller.class.php 438 2011-08-27 09:29:36Z gekosale $ 
@@ -23,8 +23,5 @@ class Admin extends \Gekosale\Logger
 {
 	
 	public function save(){
-		
 	}
-
-
 }
