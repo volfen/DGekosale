@@ -69,7 +69,7 @@ class ProductPrintController extends Component\Controller
 		$pdf->SetFont('dejavusans', '', 10);
 		$pdf->AddPage();
 		$pdf->writeHTML($htmlcontent, true, 0, true, 0);
-		ob_clean();
+		@ob_clean();
 		$pdf->Output($product['seo'], 'D');
 	}
 }

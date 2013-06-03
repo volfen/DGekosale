@@ -491,7 +491,7 @@ class InvoiceModel extends Component\Model\Datagrid
 					}
 					$pdf->AddPage();
 					$pdf->writeHTML($data, true, 0, true, 0);
-					ob_clean();
+					@ob_clean();
 					$pdf->Output($rs['symbol'], 'D');
 					break;
 				case 'pdf':
@@ -561,7 +561,7 @@ class InvoiceModel extends Component\Model\Datagrid
 					break;
 			}
 		}
-		ob_clean();
+		@ob_clean();
 		$pdf->Output('Faktury z ' . date('Y-m-d'), 'D');
 	}
 

@@ -2229,7 +2229,7 @@ class OrderModel extends Component\Model\Datagrid
 		$html = $this->registry->template->fetch($tpl);
 		$pdf->AddPage();
 		$pdf->writeHTML($html, true, 0, true, 0);
-		ob_clean();
+		@ob_clean();
 		$pdf->Output(Core::clearUTF(_('TXT_ORDER') . '_' . $order['order_id']), 'D');
 	}
 

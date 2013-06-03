@@ -449,7 +449,7 @@ class InvoiceModel extends Component\Model
 					$htmlcontent = $rs['contentoriginal'];
 					$pdf->AddPage();
 					$pdf->writeHTML($htmlcontent, true, 0, true, 0);
-					ob_clean();
+					@ob_clean();
 					$pdf->Output($rs['symbol'], 'D');
 					break;
 				case 'pdf':
