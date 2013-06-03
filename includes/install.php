@@ -198,7 +198,13 @@ class Install
 		$checkExtensionMysqli = $this->checkExtension('mysqli');
 		$checkExtensionCurl = $this->checkExtension('curl');
 		
-		if ($checkPHPVersion == TRUE && $checkExtensionZlib == TRUE && $checkExtensionMysqli == TRUE && $checkExtensionCurl == TRUE && $checkExtensionGd = TRUE){
+		if(ini_get('output_buffering')){
+			$checkOB = true;
+		}else{
+			$checkOB = false;
+		}
+		
+		if ($checkOB == TRUE && $checkPHPVersion == TRUE && $checkExtensionZlib == TRUE && $checkExtensionMysqli == TRUE && $checkExtensionCurl == TRUE && $checkExtensionGd = TRUE){
 			
 			$license = $form->AddChild(new FormEngine\Elements\Fieldset(Array(
 				'name' => 'license',
@@ -359,6 +365,10 @@ class Install
 			
 			$requirements->AddChild(new FormEngine\Elements\StaticText(Array(
 				'text' => (($checkDirSerialization == TRUE) ? '<p style="color: green;"><strong>"serialization" dir writeable</strong> - OK</p>' : '<p style="color: red"><strong>"serialization" dir writeable</strong> - No</p>')
+			)));
+			
+			$requirements->AddChild(new FormEngine\Elements\StaticText(Array(
+				'text' => (($checkOB == TRUE) ? '<p style="color: green;"><strong>"output_buffering" is ON</strong> - OK</p>' : '<p style="color: red"><strong>"output_buffering" is OFF</strong> - No</p>')
 			)));
 		}
 		$this->template->display($this->tplFile, Array(
