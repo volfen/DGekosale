@@ -116,44 +116,6 @@ class TemplateEditorController extends Component\Controller\Admin
 		$this->registry->template->display($this->loadTemplate('add.tpl'));
 	}
 
-	public function edit ()
-	{
-		$this->registry->xajaxInterface->registerFunction(array(
-			'GetFileContent',
-			$this->model,
-			'GetFileContent'
-		));
-		
-		$this->registry->xajaxInterface->registerFunction(array(
-			'SaveFileContent',
-			$this->model,
-			'SaveFileContent'
-		));
-		
-		$this->registry->xajaxInterface->registerFunction(array(
-			'DeleteFile',
-			$this->model,
-			'DeleteFile'
-		));
-		
-		if(strlen($this->id) == 0){
-			App::redirect(__ADMINPANE__ . '/templateeditor');
-		}
-		$parts = array_reverse(explode('.', $this->registry->core->getParam()));
-		$theme = array_pop($parts);
-		
-		// create copy of default template
-		if ($this->model->editDefaultTemplate($theme)){
-			Session::setVolatileMessage("Szablony domyślne mogą być aktualizowane przy okazji aktualizacji oprogramowania WellCommerce. Prosimy wprowadzać zmiany w ramach utworzonych własnoręcznie szablonów");
-			App::redirect(__ADMINPANE__ . '/templateeditor/edit/' . $theme . '_copy');
-		}
-		
-		$this->registry->template->assign('theme', $theme);
-		$this->registry->xajax->processRequest();
-		$this->registry->template->assign('xajax', $this->registry->xajax->getJavascript());
-		$this->registry->template->display($this->loadTemplate('edit.tpl'));
-	}
-
 	public function confirm ()
 	{
 		$extensions = Array(
