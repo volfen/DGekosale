@@ -36,6 +36,7 @@ class categoryModel extends Component\Model
 	public function deleteCategory ($id)
 	{
 		DbTracker::deleteRows('category', 'idcategory', $id);
+		$this->flushCache();
 	}
 
 	public function getCategoryView ($id)
@@ -200,7 +201,6 @@ class categoryModel extends Component\Model
 			}
 			$stmt->execute();
 		}
-		// $this->getCategoriesPathById();
 		$this->flushCache();
 		return Array(
 			'status' => _('TXT_CATEGORY_ORDER_SAVED')
@@ -854,123 +854,6 @@ class categoryModel extends Component\Model
 		$this->registry->cache->delete('sitemapcategories');
 	}
 
-	// public function duplicateCategory ($Data)
-	// {
-	// $sql = 'INSERT INTO category (categoryid,distinction,enable)
-	// VALUES (:categoryid,:distinction,:enable)';
-	// $stmt = Db::getInstance()->prepare($sql);
-	// if ($Data['categoryid'] != 0){
-	// $stmt->bindValue('categoryid', $Data['categoryid']);
-	// }
-	// else{
-	// $stmt->bindValue('categoryid', NULL);
-	// }
-	// if (isset($Data['enable']) && $Data['enable'] == 1){
-	// $stmt->bindValue('enable', $Data['enable']);
-	// }
-	// else{
-	// $stmt->bindValue('enable', 0);
-	// }
-	// $stmt->bindValue('distinction', $Data['distinction']);
-
-	// try{
-	// $stmt->execute();
-	// }
-	// catch (Exception $e){
-	// throw new CoreException(_('ERR_CATEGORY_ADD'), 3003,
-	// $e->getMessage());
-	// }
-
-	// $categoryid = Db::getInstance()->lastInsertId();
-
-	// if ($Data['photo']['unmodified'] == 0){
-	// $sql = 'UPDATE category SET photoid = :photo
-	// WHERE idcategory = :id';
-	// $stmt = Db::getInstance()->prepare($sql);
-	// $stmt->bindValue('id', $categoryid);
-	// if (($Data['photo'][0]) > 0){
-	// $stmt->bindValue('photo', $Data['photo'][0]);
-	// }
-	// else{
-	// $stmt->bindValue('photo', NULL);
-	// }
-	// try{
-	// $stmt->execute();
-	// }
-	// catch (Exception $e){
-	// throw new CoreException(_('ERR_CATEGORY_UPDATE'), 1,
-	// $e->getMessage());
-	// return false;
-	// }
-	// }
-	// else{
-	// $sql = 'UPDATE category SET photoid = :photoid
-	// WHERE idcategory = :id';
-	// $stmt = Db::getInstance()->prepare($sql);
-	// $stmt->bindValue('id', $categoryid);
-	// $photo = $this->getPhotoCategoryById((int)
-	// $this->registry->core->getParam());
-	// $stmt->bindValue('photoid', $photo[0]);
-	// try{
-	// $stmt->execute();
-	// }
-	// catch (Exception $e){
-	// throw new CoreException(_('ERR_CATEGORY_UPDATE'), 1,
-	// $e->getMessage());
-	// return false;
-	// }
-	// }
-
-	// foreach ($Data['name'] as $key => $val){
-	// $sql = 'INSERT INTO categorytranslation
-	// (categoryid,name,shortdescription, description, languageid, seo,
-	// keyword_title, keyword, keyword_description)
-	// VALUES (:categoryid,:name,:shortdescription, :description, :languageid,
-	// :seo, :keyword_title, :keyword, :keyword_description)';
-	// $stmt = Db::getInstance()->prepare($sql);
-	// $stmt->bindValue('categoryid', $categoryid);
-	// $stmt->bindValue('name', $Data['name'][$key]);
-	// $stmt->bindValue('shortdescription', $Data['shortdescription'][$key]);
-	// $stmt->bindValue('description', $Data['description'][$key]);
-	// $stmt->bindValue('languageid', $key);
-	// $stmt->bindValue('seo', $Data['seo'][$key]);
-	// $stmt->bindValue('keyword_title', $Data['keywordtitle'][$key]);
-	// $stmt->bindValue('keyword', $Data['keyword'][$key]);
-	// $stmt->bindValue('keyword_description',
-	// $Data['keyworddescription'][$key]);
-	// try{
-	// $stmt->execute();
-	// }
-	// catch (Exception $e){
-	// throw new CoreException(_('ERR_NEWS_ADD'), 4,
-	// $e->getMessage());
-	// }
-	// }
-
-	// foreach ($Data['view'] as $key => $val){
-	// $sql = 'INSERT INTO viewcategory (categoryid,viewid)
-	// VALUES (:categoryid, :viewid)';
-	// $stmt = Db::getInstance()->prepare($sql);
-
-	// $stmt->bindValue('categoryid', $categoryid);
-	// $stmt->bindValue('viewid', $val);
-	// try{
-	// $stmt->execute();
-	// }
-	// catch (Exception $e){
-	// throw new CoreException(_('ERR_NEWS_ADD'), 4,
-	// $e->getMessage());
-	// }
-	// }
-
-	// Event::dispatch($this, 'admin.category.model.save', Array(
-	// 'id' => $categoryid,
-	// 'data' => $Data
-	// ));
-
-	// $this->flushCache();
-	// return true;
-	// }
 	public function getProductsDataGrid ($id)
 	{
 		$sql = "SELECT
