@@ -35,6 +35,7 @@ class Install
 	{
 		$designPaths = Array();
 		$designPaths[] = ROOTPATH . 'design' . DS;
+		$this->error = NULL;
 		
 		$this->template = new Twig_Environment(new Twig_Loader_Filesystem($designPaths), array(
 			'cache' => ROOTPATH . 'cache' . DS,
@@ -318,10 +319,10 @@ class Install
 				if ($conn === TRUE){
 					$this->importDatabase($Data);
 					$this->configWriter($Data);
-					header('Location: ' . $this->panelURL($Data['admin_panel_link']));
+					header('Location: ' . $this->panelURL('admin'));
 				}
 				else{
-					$this->template->assign('error', addslashes($conn));
+					$this->error = addslashes($conn);
 				}
 			}
 		}
@@ -365,7 +366,8 @@ class Install
 		}
 		$this->template->display($this->tplFile, Array(
 			'DESIGNPATH' => App::getURLAdress() . 'design/',
-			'form' => $form->Render('JS', '', false)
+			'form' => $form->Render('JS', '', false),
+			'error' => $this->error
 		));
 	}
 }

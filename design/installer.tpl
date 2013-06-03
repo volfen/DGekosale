@@ -192,7 +192,7 @@
 		{% if error is defined %}
 			<script type="text/javascript">
 			$(document).ready(function() {
-				GMessage('TXT_ERROR_OCCURED', '{{ error }}');
+				GMessage('Wystąpił błąd', '{{ error }}');
 			});
 			</script>
 		{% endif %}
