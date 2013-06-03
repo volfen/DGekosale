@@ -5,5 +5,5 @@
 </div>	
 {% endif %}
 <div class="buttons">
-	<a href="{{ path('frontend.mainside') }}"><img src="{{ DESIGNPATH }}/_images_frontend/buttons/wroc-do-zakupow.png" alt="{% trans %}TXT_BACK_TO_SHOPPING{% endtrans %}"/></a>
+	<a href="{{ path('frontend.home') }}"><img src="{{ DESIGNPATH }}/_images_frontend/buttons/wroc-do-zakupow.png" alt="{% trans %}TXT_BACK_TO_SHOPPING{% endtrans %}"/></a>
 </div>		

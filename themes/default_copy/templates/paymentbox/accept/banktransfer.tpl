@@ -24,7 +24,7 @@
                     
         <p class="marginbt20">Dziękujemy za dokonanie zakupu i zapraszamy ponowne.</p>
                     
-        <a href="{{ path('frontend.mainside') }}" title=""><i class="icon icon-arrow-left-blue"></i> Wróć do sklepu</a>
+        <a href="{{ path('frontend.home') }}" title=""><i class="icon icon-arrow-left-blue"></i> Wróć do sklepu</a>
 	</div>
 </div>
 {% endblock %}			

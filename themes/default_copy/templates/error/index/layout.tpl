@@ -15,7 +15,7 @@
 
 				<h1 class="noborder">Nie wiesz co zrobić?</h1>
 				<p>
-					Przejdź na <a href="{{ path('frontend.mainside') }}">stronę główną serwisu.</a><br>W przypadku problemów możesz również zadzwonić lub napisać.
+					Przejdź na <a href="{{ path('frontend.home') }}">stronę główną serwisu.</a><br>W przypadku problemów możesz również zadzwonić lub napisać.
 				</p>
 
 				<div class="row-fluid">

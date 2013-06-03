@@ -28,7 +28,7 @@
 </div>
 {% else %}
 <div class="pull-right">
-	<a href="{{ path('frontend.mainside') }}" title=""><i class="icon icon-arrow-left-blue"></i> {% trans %}TXT_BACK_TO_SHOPPING{% endtrans %}</a>
+	<a href="{{ path('frontend.home') }}" title=""><i class="icon icon-arrow-left-blue"></i> {% trans %}TXT_BACK_TO_SHOPPING{% endtrans %}</a>
 	<a href="{{ path('frontend.checkout') }}" class="btn btn-large btn-primary marginlt20">{% trans %}TXT_PLACE_ORDER{% endtrans %}</a>
 </div>
 {% endif %}
