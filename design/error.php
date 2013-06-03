@@ -17,8 +17,6 @@
                        <p>Przypadki chodzą po ludziach a błędy przytrafiają się najlepszym aplikacjom.</p>
                        <p>Właśnie zaszły nieoczekiwane okoliczności które spowodowały błąd.</p>
                        <p>Możesz spróbować przejść do poprzedniej strony lub odświeżyć aktualną. </p>
-                       <p>Jeśli ten błąd będzie się powtarzał. Skontaktuj się proszę z  <a href="https://wellcommerce.pl/kontakt/">obsługą platformy WellCommerce</a></p>
-					   <p>Szczegóły dotyczące tego błędu zostały już wysłane do programistów i aktualnie pracujemy nad rozwiązaniem problemu.</p>
                     </td> 
                 </tr>
             </table>
