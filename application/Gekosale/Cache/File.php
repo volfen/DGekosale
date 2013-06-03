@@ -39,7 +39,7 @@ class File
 		}
 
 		$time = time() + ($time ?: 2592000);
-		touch($this->getCacheFileName($name), $time, $time);
+		@touch($this->getCacheFileName($name), $time, $time);
 	}
 
 	public function load ($name)
