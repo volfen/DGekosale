@@ -189,7 +189,7 @@
 			}
 		
 		</style>
-		{% if error is defined %}
+		{% if error is defined and error is not null %}
 			<script type="text/javascript">
 			$(document).ready(function() {
 				GMessage('Wystąpił błąd', '{{ error }}');
