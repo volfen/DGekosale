@@ -172,54 +172,55 @@ class CeneoModel extends Component\Model
 		$this->xmlParser->flush();
 		$Data = Array();
 		
-		Db::getInstance()->beginTransaction();
-		
-		foreach ($categories->Category as $category){
+		if (! empty($categories)){
+			Db::getInstance()->beginTransaction();
 			
-			$sql = 'INSERT INTO ceneo (name, idorginal, parentorginalid, path)
-					VALUES (:name, :idorginal, :parentorginalid, :path)';
-			$stmt = Db::getInstance()->prepare($sql);
-			$stmt->bindValue('name', (string) $category->Name);
-			$stmt->bindValue('idorginal', (int) $category->Id);
-			$stmt->bindValue('parentorginalid', 0);
-			$stmt->bindValue('path', (string) $category->Name);
-			$stmt->execute();
-			
-			foreach ($category->Subcategories->Category as $subcategory){
+			foreach ($categories->Category as $category){
+				
 				$sql = 'INSERT INTO ceneo (name, idorginal, parentorginalid, path)
-						VALUES (:name, :idorginal, :parentorginalid, :path)';
+					VALUES (:name, :idorginal, :parentorginalid, :path)';
 				$stmt = Db::getInstance()->prepare($sql);
-				$stmt->bindValue('name', (string) $subcategory->Name);
-				$stmt->bindValue('idorginal', (int) $subcategory->Id);
-				$stmt->bindValue('parentorginalid', (int) $category->Id);
-				$stmt->bindValue('path', (string) $category->Name . "|" . (string) $subcategory->Name);
+				$stmt->bindValue('name', (string) $category->Name);
+				$stmt->bindValue('idorginal', (int) $category->Id);
+				$stmt->bindValue('parentorginalid', 0);
+				$stmt->bindValue('path', (string) $category->Name);
 				$stmt->execute();
 				
-				foreach ($subcategory->Subcategories->Category as $thirdcategory){
+				foreach ($category->Subcategories->Category as $subcategory){
 					$sql = 'INSERT INTO ceneo (name, idorginal, parentorginalid, path)
-							VALUES (:name, :idorginal, :parentorginalid, :path)';
+						VALUES (:name, :idorginal, :parentorginalid, :path)';
 					$stmt = Db::getInstance()->prepare($sql);
-					$stmt->bindValue('name', (string) $thirdcategory->Name);
-					$stmt->bindValue('idorginal', (int) $thirdcategory->Id);
-					$stmt->bindValue('parentorginalid', (int) $subcategory->Id);
-					$stmt->bindValue('path', (string) $category->Name . "|" . (string) $subcategory->Name . "|" . (string) $thirdcategory->Name);
+					$stmt->bindValue('name', (string) $subcategory->Name);
+					$stmt->bindValue('idorginal', (int) $subcategory->Id);
+					$stmt->bindValue('parentorginalid', (int) $category->Id);
+					$stmt->bindValue('path', (string) $category->Name . "|" . (string) $subcategory->Name);
 					$stmt->execute();
 					
-					foreach ($thirdcategory->Subcategories->Category as $fourthcategory){
+					foreach ($subcategory->Subcategories->Category as $thirdcategory){
 						$sql = 'INSERT INTO ceneo (name, idorginal, parentorginalid, path)
-								VALUES (:name, :idorginal, :parentorginalid, :path)';
+							VALUES (:name, :idorginal, :parentorginalid, :path)';
 						$stmt = Db::getInstance()->prepare($sql);
-						$stmt->bindValue('name', (string) $fourthcategory->Name);
-						$stmt->bindValue('idorginal', (int) $fourthcategory->Id);
-						$stmt->bindValue('parentorginalid', (int) $thirdcategory->Id);
-						$stmt->bindValue('path', (string) $category->Name . "|" . (string) $subcategory->Name . "|" . (string) $thirdcategory->Name . "|" . (string) $fourthcategory->Name);
+						$stmt->bindValue('name', (string) $thirdcategory->Name);
+						$stmt->bindValue('idorginal', (int) $thirdcategory->Id);
+						$stmt->bindValue('parentorginalid', (int) $subcategory->Id);
+						$stmt->bindValue('path', (string) $category->Name . "|" . (string) $subcategory->Name . "|" . (string) $thirdcategory->Name);
 						$stmt->execute();
+						
+						foreach ($thirdcategory->Subcategories->Category as $fourthcategory){
+							$sql = 'INSERT INTO ceneo (name, idorginal, parentorginalid, path)
+								VALUES (:name, :idorginal, :parentorginalid, :path)';
+							$stmt = Db::getInstance()->prepare($sql);
+							$stmt->bindValue('name', (string) $fourthcategory->Name);
+							$stmt->bindValue('idorginal', (int) $fourthcategory->Id);
+							$stmt->bindValue('parentorginalid', (int) $thirdcategory->Id);
+							$stmt->bindValue('path', (string) $category->Name . "|" . (string) $subcategory->Name . "|" . (string) $thirdcategory->Name . "|" . (string) $fourthcategory->Name);
+							$stmt->execute();
+						}
 					}
 				}
 			}
+			Db::getInstance()->commit(); 
 		}
-		
-		Db::getInstance()->commit();
 	}
 
 	public function getDescription ()
