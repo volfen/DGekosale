@@ -280,9 +280,6 @@ class Install
 			$database->AddChild(new FormEngine\Elements\Password(Array(
 				'name' => 'password',
 				'label' => 'Hasło',
-				'rules' => Array(
-					new FormEngine\Rules\Required('Podaj hasło do bazy SQL.')
-				)
 			)));
 			
 			$database->AddChild(new FormEngine\Elements\TextField(Array(
