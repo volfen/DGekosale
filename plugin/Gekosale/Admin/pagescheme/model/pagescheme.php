@@ -144,7 +144,7 @@ class PageschemeModel extends Component\Model
 		$path = ROOTPATH . 'themes' . DS . $theme . DS . 'assets' . DS . 'css';
 		
 		$exclude = Array(
-			'scheme.less'
+			'scheme.less' 
 		);
 		
 		$inRoot = false;
