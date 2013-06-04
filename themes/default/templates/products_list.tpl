@@ -27,11 +27,11 @@
     	<p class="price">{% if showtax == 0 %}{{ item.pricenetto|priceFormat }}{% else %}{{ item.price|priceFormat }}{% endif %}</p>
     {% endif %}
     	{% if item.onstock == 1 %}
-        <p class="action"><a href="#" class="btn btn-primary" onclick="xajax_doQuickAddCart({{ item.id }});return false;"><i class="icon-shopping-cart icon-white"></i> Do koszyka</a></p>
+        <p class="action"><a href="#" class="btn btn-primary" onclick="xajax_doQuickAddCart({{ item.id }});return false;"><i class="icon-shopping-cart icon-white"></i> {% trans %}TXT_ADD_TO_CART{% endtrans %}</a></p>
         {% else %}
-        <p class="action"><a class="btn btn-danger" href="{{ path('frontend.contact', {"param": item.id }) }}"> Zapytaj o produkt</a></p>
+        <p class="action"><a class="btn btn-danger" href="{{ path('frontend.contact', {"param": item.id }) }}"> {% trans %}TXT_PRODUCT_ASK_ABOUT{% endtrans %}</a></p>
         {% endif %}
-        <a href="{{ path('frontend.productcart', {"param": item.seo}) }}" class="more">Więcej o produkcie <i class="icon-arrow-right-blue"></i></a>
+        <a href="{{ path('frontend.productcart', {"param": item.seo}) }}" class="more">{% trans %}TXT_PRODUCT_ABOUT{% endtrans %} <i class="icon-arrow-right-blue"></i></a>
 	</div>
 </div>
 {% endfor %}
