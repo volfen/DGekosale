@@ -4,9 +4,9 @@
 
 		<!-- begin: Meta information -->
 			<title>{{ SHOP_NAME }} Admin</title>
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-			<meta http-equiv="Author" content="Verison; http://verison.pl"/>
-			<meta http-equiv="Description" content="Panel administracyjny systemu sklepowego Gekosale."/>
+			<meta http-equiv="content-Type" content="text/html; charset=utf-8"/>
+			<meta http-equiv="author" content="WellCommerce; http://www.wellcommerce.pl""/>
+			<meta http-equiv="description" content="Panel administracyjny systemu sklepowego Gekosale."/>
 			<meta name="robots" content="noindex, nofollow"/>
 			<link rel="shortcut icon" href="favicon.ico"/>
 			<link rel="stylesheet" href="{{ DESIGNPATH }}_css_panel/core/style.css" type="text/css"/>
@@ -153,7 +153,7 @@
 		<!-- begin: Message bar -->
 			<div id="message-bar">
 
-				<h2 class="aural">Wiadomości</h2>
+				<h2 class="aural">{% trans %}TXT_ADMIN_NEWS{% endtrans %}</h2>
 
 			</div>
 		<!-- end: Message bar -->
