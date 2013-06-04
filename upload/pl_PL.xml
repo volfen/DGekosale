@@ -1877,6 +1877,10 @@
     <field name="translation">Pozostało do zapłaty</field>
   </row>
   <row>
+    <field name="name">TXT_AMOUNT_TOTAL</field>
+    <field name="translation">Łącznie do zapłaty</field>
+  </row>
+  <row>
     <field name="name">TXT_ANALYTICS_DATA</field>
     <field name="translation">Google Analytics</field>
   </row>
@@ -3115,6 +3119,10 @@
   <row>
     <field name="name">TXT_CONTENT_IN_PRODUCTS_BOX_INFO</field>
     <field name="translation">Tekst ten pojawi się w boksie, którego rodzaj sam wybierzesz. Sam boks pojawi się dopiero po potwierdzeniu.</field>
+  </row>
+  <row>
+    <field name="name">TXT_CONTINUE_SHOPPING</field>
+    <field name="translation">Kontynuuj zakupy</field>
   </row>
   <row>
     <field name="name">TXT_CONTROLLER</field>
@@ -6729,6 +6737,10 @@
     <field name="translation">Zaloguj się</field>
   </row>
   <row>
+    <field name="name">TXT_LOGIN_TOP</field>
+    <field name="translation">Logowanie</field>
+  </row>
+  <row>
     <field name="name">TXT_LOGIN_FORM_LOGIN</field>
     <field name="translation">Login</field>
   </row>
@@ -8157,6 +8169,14 @@
     <field name="translation">Drukuj</field>
   </row>
   <row>
+    <field name="name">TXT_PRINT</field>
+    <field name="translation">Drukuj</field>
+  </row>
+  <row>
+    <field name="name">TXT_PRINT_OFFER</field>
+    <field name="translation">Wydrukuj ofertę</field>
+  </row>
+  <row>
     <field name="name">TXT_PRIORITY</field>
     <field name="translation">Priorytet</field>
   </row>
@@ -8329,12 +8349,20 @@
     <field name="translation">Lista produktów up-sell</field>
   </row>
   <row>
+    <field name="name">TXT_PRODUCT_ABOUT</field>
+    <field name="translation">Więcej o produkcie</field>
+  </row>
+  <row>
     <field name="name">TXT_PRODUCT_ADD</field>
     <field name="translation">Dodawanie nowego produktu</field>
   </row>
   <row>
     <field name="name">TXT_PRODUCT_ADDED_SUCCESSFULLY</field>
     <field name="translation">Dodawanie produktu się powiodło</field>
+  </row>
+  <row>
+    <field name="name">TXT_PRODUCT_ASK_ABOUT</field>
+    <field name="translation">Zapytaj o produkt</field>
   </row>
   <row>
     <field name="name">TXT_PRODUCT_ATTRIBUTES</field>
@@ -9539,6 +9567,18 @@
   <row>
     <field name="name">TXT_STATUS_AND_COMMENTS</field>
     <field name="translation">Status i komentarze</field>
+  </row>
+  <row>
+    <field name="name">TXT_STEP1</field>
+    <field name="translation">Krok 1. Dane adresowe</field>
+  </row>
+  <row>
+    <field name="name">TXT_STEP2</field>
+    <field name="translation">Krok 2. Podsumowanie zamówienia</field>
+  </row>
+  <row>
+    <field name="name">TXT_STEP3</field>
+    <field name="translation">Krok 3. Potwierdzenie i płatność</field>
   </row>
   <row>
     <field name="name">TXT_STOCK</field>
