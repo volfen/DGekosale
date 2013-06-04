@@ -126,7 +126,7 @@ class TranslationController extends Component\Controller\Admin
 		$stmt = Db::getInstance()->prepare($sql);
 		$stmt->bindValue('languageid', Helper::getLanguageId());
 		$stmt->execute();
-		$xml = new SimpleXMLElement('<rows></rows>');
+		$xml = new \SimpleXMLElement('<rows></rows>');
 		while ($rs = $stmt->fetch()){
 			$node = $xml->addChild('row');
 			$name = $node->addChild('field', $rs['name']);
@@ -135,10 +135,10 @@ class TranslationController extends Component\Controller\Admin
 			$translation->addAttribute('name', 'translation');
 		}
 		header('Content-type: text/xml; charset=utf-8');
-		header('Content-disposition: attachment; filename=pl_PL.xml');
+		header('Content-disposition: attachment; filename='pl_PL'.Session::getActiveLanguage().'.xml');
 		header('Content-type: text/xml');
 		header('Cache-Control: max-age=0');
-		$doc = new DOMDocument('1.0', 'UTF-8');
+		$doc = new \DOMDocument('1.0', 'UTF-8');
 		$doc->formatOutput = true;
 		$domnode = dom_import_simplexml($xml);
 		$domnode = $doc->importNode($domnode, true);
