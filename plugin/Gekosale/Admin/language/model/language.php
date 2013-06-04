@@ -367,16 +367,15 @@ class LanguageModel extends Component\Model\Datagrid
 		$stmt->execute();
 		$rs = $stmt->fetch();
 		
-		if ($rs && $updateOnExists == false)
+		if (!$rs && $updateOnExists == false)
 			return false;
 		
 		if ($rs){
 			$id = $rs['id'];
-			$sql = 'INSERT INTO translationdata SET
-						translationid = :translationid,
-						languageid = :languageid,
-						translation = :translation
-					ON DUPLICATE KEY UPDATE 
+			$sql = 'INSERT INTO translationdata 
+						(translationid, languageid, translation) 
+						VALUES (:translationid, :languageid, :translation) 
+						ON DUPLICATE KEY UPDATE
 						translation = :translation';
 			$stmt = Db::getInstance()->prepare($sql);
 			$stmt->bindValue('translation', $value);
@@ -391,11 +390,10 @@ class LanguageModel extends Component\Model\Datagrid
 			
 			$stmt->execute();
 			$id = Db::getInstance()->lastInsertId();
-			$sql = 'INSERT INTO translationdata SET
-						translationid = :translationid,
-						languageid = :languageid,
-						translation = :translation
-					ON DUPLICATE KEY UPDATE 
+			$sql = 'INSERT INTO translationdata 
+						(translationid, languageid, translation) 
+						VALUES (:translationid, :languageid, :translation) 
+						ON DUPLICATE KEY UPDATE
 						translation = :translation';
 			$stmt = Db::getInstance()->prepare($sql);
 			$stmt->bindValue('translation', $value);
