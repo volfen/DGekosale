@@ -2291,6 +2291,22 @@ a.button-green span img,span.button-green span img {
 	text-decoration: underline;
 }
 
+.login-form .field-checkbox {
+	float: left;
+}
+
+.login-form label {
+	width: auto !important;
+	text-align: left !important;
+	margin: 0px !important;
+}
+
+.login-form span.repetition {
+	float: left;
+	margin-left: 0px !important;
+	margin-bottom: 0px !important;
+}
+
 /*
 * PRELOADER
 */
