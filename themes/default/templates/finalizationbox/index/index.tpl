@@ -1,6 +1,6 @@
 {% import "forms.tpl" as forms %}
 {% extends "layoutbox.tpl" %} {% block content %}
-<h1 class="large">Krok 2. Podsumowanie zamówienia</h1>
+<h1 class="large">{% trans %}TXT_STEP2{% endtrans %}</h1>
 <div class="row-fluid row-form">
 	<form class="form-horizontal" id="order">
 		<table class="table table-striped table-bordered products-table">
