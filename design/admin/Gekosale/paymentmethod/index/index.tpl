@@ -2,7 +2,7 @@
 {% block content %}
 <h2><img src="{{ DESIGNPATH }}_images_panel/icons/modules/paymentmethod-list.png" alt=""/>{% trans %}TXT_PAYMENTMETHOD_LIST{% endtrans %}</h2>
 <ul class="possibilities">
-	<li><a href="{{ URL }}{{ CURRENT_CONTROLLER }}/add" class="button"><span>{% trans %}TXT_ADD_PAYMENTMETHOD{% endtrans %}</span></a></li>
+	<li><a href="{{ URL }}{{ CURRENT_CONTROLLER }}/add" class="button" title="{% trans %}TXT_ADD_PAYMENTMETHOD{% endtrans %}"><span><img src="{{ DESIGNPATH }}_images_panel/icons/buttons/add.png" alt=""/>{% trans %}TXT_ADD_PAYMENTMETHOD{% endtrans %}</span></a></li>
 </ul>
 <div class="block">
 	<div id="list-paymentmethod"></div>
