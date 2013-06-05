@@ -41,7 +41,7 @@ class SlideShowBoxController extends Component\Controller\Box
 						'image' => $image,
 						'height' => $height,
 						'url' => $this->_boxAttributes['url' . $i],
-						'caption' => $this->_boxAttributes['caption' . $i]
+						'caption' => _($this->_boxAttributes['caption' . $i])
 					);
 				}
 			}
