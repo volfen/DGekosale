@@ -1,7 +1,7 @@
 {% import "forms.tpl" as forms %} 
 {% extends "layoutbox.tpl" %} 
 {% block content %}
-<h1 class="large">Krok 1. Dane adresowe</h1>
+<h1 class="large">{% trans %}TXT_STEP1{% endtrans %}</h1>
 <div class="row-fluid row-form">
 	<div class="span9">
 		<div class="span3 alignright">
