@@ -3,7 +3,7 @@
 	<head>
 		<title>Gekosale Install</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<meta http-equiv="Author" content="Verison; http://www.gekosale.pl"/>
+		<meta http-equiv="Author" content="WellCommerce; http://www.wellcommerce.pl"/>
 		<meta name="robots" content="noindex, nofollow"/>
 		<link rel="shortcut icon" href="favicon.ico"/>
 		<link rel="stylesheet" href="{{ DESIGNPATH }}_css_panel/core/style.css" type="text/css"/>
@@ -200,7 +200,7 @@
 	<body class="welcome-screen">
 		<div id="header">
 			<div class="container">
-				<h1><a href="http://www.gekosale.pl" target="_blank">Gekosale - Open-source e-commerce platform</a></h1>
+				<h1><a href="http://www.gekosale.pl" target="_blank">Gekosale.pl - bezpłatne oprogramowanie sklepu internetowego</a></h1>
 			</div>
 		</div>
 		<div id="message-bar">
