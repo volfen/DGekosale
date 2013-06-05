@@ -135,7 +135,7 @@ class TranslationController extends Component\Controller\Admin
 			$translation->addAttribute('name', 'translation');
 		}
 		header('Content-type: text/xml; charset=utf-8');
-		header('Content-disposition: attachment; filename='pl_PL'.Session::getActiveLanguage().'.xml');
+		header('Content-disposition: attachment; filename='.Session::getActiveLanguage().'.xml');
 		header('Content-type: text/xml');
 		header('Cache-Control: max-age=0');
 		$doc = new \DOMDocument('1.0', 'UTF-8');
