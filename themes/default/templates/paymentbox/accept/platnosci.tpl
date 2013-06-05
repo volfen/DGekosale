@@ -1,7 +1,7 @@
 {% extends "layoutbox.tpl" %}
 {% block content %}
 <div class="row-fluid row-form">
-	<h1 class="large">Krok 3. Potwierdzenie i płatność</h1>
+	<h1 class="large">{% trans %}TXT_STEP3{% endtrans %}</h1>
 	<div class="span11">
     	<div class="alert alert-block alert-success">
         	<h3>Trwa przekierowanie na strony systemu płatności Platnosci.pl. Proszę czekać...</h3>
