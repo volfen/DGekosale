@@ -2270,14 +2270,14 @@ a.button-green span img,span.button-green span img {
 
 .login-form .field-submit {
 	display: inline;
-	margin: 10px 0 0 15px;
+	margin: 0px 0 0 15px;
 	float: right;
 }
 
 .login-form .field-static-text {
 	display: inline;
 	line-height: 24px;
-	margin: 10px 0 0 0;
+	margin: 0px 0 0 0;
 	float: right;
 }
 
