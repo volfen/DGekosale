@@ -367,8 +367,8 @@ class LanguageModel extends Component\Model\Datagrid
 		$stmt->execute();
 		$rs = $stmt->fetch();
 		
-		if (!$rs && $updateOnExists == false)
-			return false;
+		//if (!$rs && $updateOnExists == false)
+			//return false;
 		
 		if ($rs){
 			$id = $rs['id'];
@@ -384,7 +384,7 @@ class LanguageModel extends Component\Model\Datagrid
 			$stmt->execute();
 		}
 		else{
-			$sql = 'INSERT INTO translation SET name = :name';
+			$sql = 'INSERT INTO translation (name) VALUES (:name)';
 			$stmt = Db::getInstance()->prepare($sql);
 			$stmt->bindValue('name', $name);
 			
