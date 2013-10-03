@@ -30,7 +30,7 @@ class AdminException extends BaseException
 			App::redirect('admin/mainside');
 		}
 		$this->errorDesignPath = 'error/index/index.tpl';
-		echo "<pre>";
+		echo "<pre>"; 
 		echo $this->errorText;
 		die();
 	}
